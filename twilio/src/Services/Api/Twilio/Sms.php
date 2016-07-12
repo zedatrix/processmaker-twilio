@@ -17,6 +17,7 @@ class Sms extends Api{
      */
 
     public function routeCase($app_uid, $phone_number = null){
+
         try {
             /**
              * First, we need to check if the phone number provided is valid
@@ -27,8 +28,8 @@ class Sms extends Api{
             //We need to include the Twilio SDK
             require_once(PATH_PLUGINS . 'twilio/vendor/twilio/sdk/Services/Twilio.php');
             //Then we need to provide the Account ID and Auth Token - these are taken from your Twilio developer account
-            $account_sid = '<acount-id>';
-            $auth_token = '<auth-token>';
+            $account_sid = 'AC081379170bec8fda4a1933c12813958c';
+            $auth_token = '87415ac8980e3fcfba596257e643e4e5';
             //Let's instantiate the SDK now
             $twilioClient = new \Services_Twilio($account_sid, $auth_token);
             //Let's now instantiate the ProcessMaker rest controller for the cases endpoints
@@ -47,7 +48,7 @@ class Sms extends Api{
                 //We are now using the phone number provided by the request
                 'To' => $phone_number,
                 //Add here the Twilio phone number that you have
-                'From' => "<twilio-phone-number>",
+                'From' => "+16467624222",
                 //The message we send through Twilio. Note that we added the case number to the message
                 'Body' => "The ProcessMaker REST API has successfully routed Case #" . $caseInfo->app_number,
             ));

@@ -28,6 +28,5 @@ class twilioPlugin extends PMPlugin{
   }
   
 }
-
 $oPluginRegistry = &PMPluginRegistry::getSingleton();
 $oPluginRegistry->registerPlugin("twilio", __FILE__);
